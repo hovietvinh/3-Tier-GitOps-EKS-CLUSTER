@@ -2,6 +2,10 @@ variable "project_name" {
   type = string
 }
 
+variable "region" {
+  type = string
+}
+
 variable "env" {
   type = string
 }
@@ -21,3 +25,4 @@ variable "eks_node_group_capacity_type" {
 variable "eks_node_group_instance_type" {
   type = list(string)
 }
+
