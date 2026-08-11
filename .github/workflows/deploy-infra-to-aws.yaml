@@ -39,6 +39,16 @@ jobs:
         with:
           ref: ${{ github.ref_name }}
     
+      - name: Debug OIDC Token Claims (Catch Red-Handed)
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const token = await core.getIDToken('sts.amazonaws.com');
+            const payload = token.split('.')[1];
+            const decoded = Buffer.from(payload, 'base64').toString('utf-8');
+            console.log("=== RAW JWT CLAIMS GỬI SANG AWS ===");
+            console.log(JSON.parse(decoded));
+    
     
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
