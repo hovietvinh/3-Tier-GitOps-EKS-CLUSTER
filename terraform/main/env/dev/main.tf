@@ -5,6 +5,7 @@ module "eks" {
     eks_cluster_version = var.eks_cluster_version
     eks_node_group_capacity_type = var.eks_node_group_capacity_type
     eks_node_group_instance_type = var.eks_node_group_instance_type
+    eks_addon_versions = var.eks_addon_versions
 }
 
 module "iam" {
