@@ -5,7 +5,7 @@ resource "aws_eks_addon" "coredns" {
 
   depends_on = [
     aws_eks_cluster.eks_cluster,
-    aws_eks_node_group.your_managed_node_group_name
+    aws_eks_node_group.eks_node_group
   ]
 }
 
