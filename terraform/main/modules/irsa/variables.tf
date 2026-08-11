@@ -4,7 +4,6 @@ variable "env" {
 
 variable "project_name" {
   type    = string
-  default = null
 }
 
 variable "namespace" {

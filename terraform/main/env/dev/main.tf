@@ -17,6 +17,7 @@ module "iam" {
 module "alb_controller_irsa" {
   source                = "../../modules/irsa"
   env                    = var.env
+  project_name = var.project_name
   namespace              = "kube-system"
   service_account_name  = "aws-load-balancer-controller"
   role_name_override    = "${var.project_name}-${var.env}-alb-controller"
