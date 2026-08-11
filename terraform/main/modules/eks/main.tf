@@ -4,7 +4,7 @@ resource "aws_eks_cluster" "eks_cluster" {
   role_arn = aws_iam_role.eks_cluster_role.arn
 #   bootstrap_self_managed_addons = true //default is true (false when use auto mode)
   vpc_config {
-    subnet_ids = var.private_subnet_ids
+    subnet_ids = data.aws_subnets.private.ids
     endpoint_private_access = true
     endpoint_public_access = true
   }
@@ -22,7 +22,7 @@ resource "aws_eks_node_group" "eks_node_group" {
   version = var.eks_cluster_version
   node_role_arn = aws_iam_role.eks_worker_role.arn
 
-  subnet_ids = var.private_subnet_ids
+  subnet_ids = data.aws_subnets.private.ids
 
   capacity_type = var.eks_node_group_capacity_type
   

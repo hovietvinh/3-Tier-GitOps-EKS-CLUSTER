@@ -10,9 +10,6 @@ variable "eks_cluster_version" {
     type = string
 }
 
-variable "private_subnet_ids" {
-  type = list(string)
-}
 
 variable "eks_node_group_capacity_type" {
   type = string
